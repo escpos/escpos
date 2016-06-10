@@ -64,8 +64,8 @@ report = MyReport.new 'path/to/my_report.erb'
 
 - text: Normal text formatting
 - double_height: Double height text
-- quad_text, big, title header, double_width_double_height, double_height_double_width: Double width & Double height text
-- double_width: Double iwdth text
+- quad_text, big, title, header, double_width_double_height, double_height_double_width: Double width & Double height text
+- double_width: Double width text
 - underline, u: Underlined text
 - underline2, u2: Stronger underlined text
 - bold, b: Bold text

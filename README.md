@@ -8,6 +8,9 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'escpos'
+
+# see https://github.com/escpos/escpos-image
+gem 'escpos-image' # add this if you want to print PNG images
 ```
 
 And then execute:

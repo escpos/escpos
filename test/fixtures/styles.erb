@@ -1,6 +1,8 @@
 Unformatted text
 
-<%= encode "ISO-8859-2 encoded text. (ěščřžýáíéúů)", encoding: "ISO-8859-2" %>
+<%= set_printer_encoding(Escpos::CP_ISO8859_2) %>
+
+<%= encode "UTF-8 to ISO-8859-2 text: (ěščřžýáíéúů)", encoding: "ISO-8859-2" %>
 
 <%= text "Normal text" %>
 
@@ -21,6 +23,10 @@ Unformatted text
 <%= right "Right aligned text" %>
 
 <%= center "Centered text" %>
+
+<%= left %>
+
+<%= invert "Inverted color text" %>
 
 <%= barcode "8594404000572" %>
 

@@ -7,7 +7,7 @@ module Escpos
     def initialize
       # ensure only supported sequences are generated
       @data = "".force_encoding("ASCII-8BIT")
-      @data = Escpos.sequence HW_INIT
+      @data << Escpos.sequence(HW_INIT)
     end
 
     def write(data)

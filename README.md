@@ -69,21 +69,24 @@ report = MyReport.new 'path/to/my_report.erb'
 # @printer.to_escpos or @printer.to_base64 contains resulting ESC/POS data
 ```
 
-## Available helpers
+## Available helper methods
 
-- text: Normal text formatting
-- double_height: Double height text
-- quad_text, big, title, header, double_width_double_height, double_height_double_width: Double width & Double height text
-- double_width: Double width text
-- underline, u: Underlined text
-- underline2, u2: Stronger underlined text
-- bold, b: Bold text
-- left: Align to left
-- right: Align to right
-- center: Align to center
-- barcode: Print barcode
-- partial_cut: Partially cut the paper (may not be available on all devices)
-- cut: Fully cut the paper (may not be available on all devices)
+- **text**: Normal text formatting
+- **encode**: Encode text for the printer
+- **encoding, set_encoding, set_printer_encoding**: Set printer encoding
+- **double_height**: Double height text
+- **quad_text, big, title, header, double_width_double_height, double_height_double_width**: Double width & Double height text
+- **double_width**: Double width text
+- **underline, u**: Underlined text
+- **underline2, u2**: Stronger underlined text
+- **bold, b**: Bold text
+- **left**: Align to left
+- **right**: Align to right
+- **center**: Align to center
+- **invert, inverted**: Color inverted text
+- **barcode**: Print barcode
+- **partial_cut**: Partially cut the paper (may not be available on all devices)
+- **cut**: Fully cut the paper (may not be available on all devices)
 
 ## Contributing
 

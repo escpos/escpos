@@ -26,6 +26,7 @@ Or install it yourself as:
 ![](https://github.com/escpos/escpos/blob/master/examples/IMG_20160608_001339_HDR.jpg)
 ![](https://github.com/escpos/escpos/blob/master/examples/IMG_20160610_161302_HDR.jpg)
 ![](https://github.com/escpos/escpos/blob/master/examples/IMG_20160610_204358_HDR.jpg)
+![](https://github.com/escpos/escpos-image/blob/master/examples/IMG_20160610_232415_HDR.jpg)
 
 ## Usage
 

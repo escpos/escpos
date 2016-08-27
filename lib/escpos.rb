@@ -88,6 +88,8 @@ module Escpos
   TXT_ALIGN_RT                 = [ 0x1b, 0x61, 0x02 ]        # Right justification
   TXT_INVERT_ON                = [ 0x1d, 0x42, 0x01 ]        # Inverted color text
   TXT_INVERT_OFF               = [ 0x1d, 0x42, 0x00 ]        # Inverted color text
+  TXT_COLOR_BLACK              = [ 0x1b, 0x72, 0x00 ]        # Default Color
+  TXT_COLOR_RED                = [ 0x1b, 0x72, 0x01 ]        # Alternative Color (Usually Red)
 
   # Barcodes
   BARCODE_TXT_OFF             = [ 0x1d, 0x48, 0x00 ]         # HRI barcode chars OFF

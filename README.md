@@ -85,6 +85,8 @@ report = MyReport.new 'path/to/my_report.erb'
 - **right**: Align to right
 - **center**: Align to center
 - **invert, inverted**: Color inverted text
+- **black, default_color, color_black, black_color**: Default Color (Usually black)
+- **red, alt_color, alternative_color, color_red, red_color**: Alternative Color (Usually Red)
 - **barcode**: Print barcode
 - **partial_cut**: Partially cut the paper (may not be available on all devices)
 - **cut**: Fully cut the paper (may not be available on all devices)

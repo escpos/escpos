@@ -120,6 +120,29 @@ module Escpos
     end
     alias :invert :inverted
 
+    def black
+      [
+        Escpos.sequence(Escpos::TXT_COLOR_BLACK),
+        data,
+        Escpos.sequence(Escpos::TXT_COLOR_BLACK),
+      ].join
+    end
+    alias :default_color :black
+    alias :black_color :black
+    alias :color_black :black
+
+    def red
+      [
+        Escpos.sequence(Escpos::TXT_COLOR_BLACK),
+        data,
+        Escpos.sequence(Escpos::TXT_COLOR_RED),
+      ].join
+    end
+    alias :alt_color :red
+    alias :alternative_color :red
+    alias :red_color :red
+    alias :color_red :red
+
     def barcode(data, opts = {})
       text_position = opts.fetch(:text_position, Escpos::BARCODE_TXT_OFF)
       unless [Escpos::BARCODE_TXT_OFF, Escpos::BARCODE_TXT_ABV, Escpos::BARCODE_TXT_BLW, Escpos::BARCODE_TXT_BTH].include?(text_position)

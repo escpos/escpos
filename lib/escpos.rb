@@ -112,8 +112,8 @@ module Escpos
   IMAGE                      = [ 0x1d, 0x76, 0x30, 0x00 ]    # Start image pixel data
 
   # Transforms an array of codes into a string
-  def sequence(arr_sequence)
-    arr_sequence.pack('U*')
+  def sequence(*arr_sequence)
+    arr_sequence.flatten.pack('U*')
   end
   module_function :sequence
 

@@ -1,0 +1,20 @@
+image: ruby:2.5
+
+cache:
+  paths:
+    - vendor/ruby
+
+stages:
+  - test
+
+before_script:
+  - ruby -v
+  - bundle -v
+  - bundle install --jobs $(nproc) --path vendor
+
+test:
+  stage: test
+  script:
+    - bundle exec rake test
+  environment:
+    name: test

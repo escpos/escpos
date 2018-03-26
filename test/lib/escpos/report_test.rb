@@ -5,7 +5,7 @@ class TestReport < Minitest::Test
     @printer = Escpos::Printer.new
   end
 
-  def test_styles
+  def test_report
     report_klass = Class.new(Escpos::Report)
     report_klass.class_eval do
       def item(text)

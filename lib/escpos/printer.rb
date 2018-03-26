@@ -1,7 +1,6 @@
-require 'base64'
+require "base64"
 
 module Escpos
-
   class Printer
 
     def initialize
@@ -11,7 +10,7 @@ module Escpos
     end
 
     def write(data)
-      @data << data
+      @data << data.force_encoding("ASCII-8BIT")
     end
 
     def partial_cut!

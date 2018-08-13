@@ -3,7 +3,7 @@ require 'erb'
 module Escpos
   class Report
     include ERB::Util
-    include Helpers
+    include Escpos::Helpers
 
     def initialize(file_or_path, optr = {})
       if file_or_path.is_a?(String)

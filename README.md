@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 gem 'escpos'
 
 # see https://github.com/escpos/escpos-image
-gem 'escpos-image' # add this if you want to print PNG images
+gem 'escpos-image' # add this if you want to print images
 ```
 
 And then execute:
@@ -20,6 +20,21 @@ And then execute:
 Or install it yourself as:
 
     $ gem install escpos
+
+## Image support
+
+To keep this gem lightweight and modular image support was implemented in another gem:
+
+https://github.com/escpos/escpos-image
+
+```ruby
+# Add this line to your application's Gemfile if you want to print images
+gem 'escpos-image'
+```
+Or install it yourself as:
+```
+gem install escpos-image
+```
 
 ## Examples
 

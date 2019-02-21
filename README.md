@@ -43,7 +43,7 @@ gem install escpos-image
 ![](https://github.com/escpos/escpos/blob/master/examples/IMG_20160610_204358_HDR.jpg)
 ![](https://github.com/escpos/escpos-image/blob/master/examples/IMG_20160610_232415_HDR.jpg)
 
-## Usage
+## Basic usage
 
 ```ruby
 @printer = Escpos::Printer.new
@@ -55,9 +55,11 @@ gem install escpos-image
 # with serial port printer it can be sent directly to the serial port
 
 @printer.to_base64 # returns base64 encoded ESC/POS data
+```
 
-# using report class
+## Report class usage
 
+```ruby
 # my_report.rb:
 class MyReport < Escpos::Report
   def item(text)
@@ -70,7 +72,6 @@ class MyReport < Escpos::Report
     options[:order]
   end
 end
-
 ```
 
 ```erb
@@ -82,13 +83,12 @@ end
 ```
 
 ```ruby
-# usage:
-
 report = MyReport.new 'path/to/my_report.erb', {
   order: { number: 123 }
 }
 @printer.write report.render
 @printer.cut!
+
 # @printer.to_escpos or @printer.to_base64 contains resulting ESC/POS data
 ```
 

@@ -50,12 +50,17 @@ class MyReport < Escpos::Report
     @count += 1
     quad_text "#{@count}. #{text}"
   end
+
+  def order
+    options[:order]
+  end
 end
 
 ```
 
 ```erb
 <% # my_report.erb: %>
+Order number <%= order[:number] %>
 <%= item "First item" %>
 <%= item "Second item" %>
 <%= item "Third item" %>
@@ -64,7 +69,9 @@ end
 ```ruby
 # usage:
 
-report = MyReport.new 'path/to/my_report.erb'
+report = MyReport.new 'path/to/my_report.erb', {
+  order: { number: 123 }
+}
 @printer.write report.render
 @printer.cut!
 # @printer.to_escpos or @printer.to_base64 contains resulting ESC/POS data

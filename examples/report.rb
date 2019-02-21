@@ -6,9 +6,15 @@ class MyReport < Escpos::Report
     @count += 1
     quad_text "#{@count}. #{text}"
   end
+
+  def order
+    options[:order]
+  end
 end
 
-report = MyReport.new File.join(__dir__, 'report.erb')
+report = MyReport.new File.join(__dir__, 'report.erb'), {
+  order: { number: 123 }
+}
 @printer.write report.render
 @printer.cut!
 

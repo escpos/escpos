@@ -13,13 +13,18 @@ class TestReport < Minitest::Test
         @count += 1
         quad_text "#{@count}. #{text}"
       end
+      def order
+        options[:order]
+      end
     end
-    report = report_klass.new(File.join(__dir__, '../../fixtures/report.erb'))
+    report = report_klass.new File.join(__dir__, '../../fixtures/report.erb'), {
+      order: { number: 123 }
+    }
 
     @printer.write report.render
     @printer.cut!
     #pp @printer.to_base64
-    assert_equal @printer.to_base64, 'G0AbITAxLiBGaXJzdCBpdGVtGyEAChshMDIuIFNlY29uZCBpdGVtGyEAChshMDMuIFRoaXJkIGl0ZW0bIQAKCgoKCh1WAA=='
+    assert_equal @printer.to_base64, 'G0BPcmRlciBudW1iZXIgMTIzCgobITAxLiBGaXJzdCBpdGVtGyEAChshMDIuIFNlY29uZCBpdGVtGyEAChshMDMuIFRoaXJkIGl0ZW0bIQAKCgoKCh1WAA=='
   end
 
 end

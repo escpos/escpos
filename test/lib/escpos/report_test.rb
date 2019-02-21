@@ -11,7 +11,7 @@ class TestReport < Minitest::Test
       def item(text)
         @count ||= 0
         @count += 1
-        quad_text "#{@count}. #{text}"
+        bold "#{@count}. #{text}"
       end
       def order
         options[:order]
@@ -24,7 +24,7 @@ class TestReport < Minitest::Test
     @printer.write report.render
     @printer.cut!
     #pp @printer.to_base64
-    assert_equal @printer.to_base64, 'G0BPcmRlciBudW1iZXIgMTIzCgobITAxLiBGaXJzdCBpdGVtGyEAChshMDIuIFNlY29uZCBpdGVtGyEAChshMDMuIFRoaXJkIGl0ZW0bIQAKCgoKCh1WAA=='
+    assert_equal @printer.to_base64, 'G0AbITBPcmRlciBudW1iZXIgMTIzGyEACgobRQExLiBGaXJzdCBpdGVtG0UAChtFATIuIFNlY29uZCBpdGVtG0UAChtFATMuIFRoaXJkIGl0ZW0bRQAKCgoKCh1WAA=='
   end
 
 end

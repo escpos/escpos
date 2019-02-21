@@ -4,7 +4,7 @@ class MyReport < Escpos::Report
   def item(text)
     @count ||= 0
     @count += 1
-    quad_text "#{@count}. #{text}"
+    bold "#{@count}. #{text}"
   end
 
   def order

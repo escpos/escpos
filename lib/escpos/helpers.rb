@@ -1,5 +1,6 @@
 module Escpos
   module Helpers
+    extend self
 
     # Encodes UTF-8 string to encoding acceptable for the printer
     # The printer must be set to that encoding

@@ -21,10 +21,11 @@ class TestReport < Minitest::Test
       order: { number: 123 }
     }
 
-    @printer.write report.render
+    @printer << report.render
     @printer.cut!
-    #pp @printer.to_base64
-    assert_equal @printer.to_base64, 'G0AbITBPcmRlciBudW1iZXIgMTIzGyEACgobRQExLiBGaXJzdCBpdGVtG0UAChtFATIuIFNlY29uZCBpdGVtG0UAChtFATMuIFRoaXJkIGl0ZW0bRQAKCgoKCh1WAA=='
+    file = File.join(__dir__, "../../results/#{__method__}.txt")
+    #IO.binwrite file, @printer.to_escpos
+    assert_equal IO.binread(file), @printer.to_escpos
   end
 
 end

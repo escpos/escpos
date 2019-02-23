@@ -47,7 +47,8 @@ gem install escpos-image
 
 ```ruby
 @printer = Escpos::Printer.new
-@printer.write "Some text"
+@printer << "Some text"
+@printer << Escpos::Helpers.big "Big text"
 
 @printer.to_escpos # returns ESC/POS data ready to be sent to printer
 # on linux this can be piped directly to /dev/usb/lp0
@@ -86,7 +87,7 @@ end
 report = MyReport.new 'path/to/my_report.erb', {
   order: { number: 123 }
 }
-@printer.write report.render
+@printer << report.render
 @printer.cut!
 
 # @printer.to_escpos or @printer.to_base64 contains resulting ESC/POS data

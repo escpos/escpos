@@ -13,6 +13,7 @@ module Escpos
       escpos_data = data.respond_to?(:to_escpos) ? data.to_escpos : data
       @data << escpos_data.force_encoding("ASCII-8BIT")
     end
+    alias :<< :write
 
     def partial_cut!
       @data << Escpos.sequence(PAPER_PARTIAL_CUT)

@@ -15,7 +15,7 @@ end
 report = MyReport.new File.join(__dir__, 'report.erb'), {
   order: { number: 123 }
 }
-@printer.write report.render
+@printer << report.render
 @printer.cut!
 
 # @printer.to_escpos or @printer.to_base64 contains resulting ESC/POS data

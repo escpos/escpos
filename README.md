@@ -95,24 +95,26 @@ report = MyReport.new 'path/to/my_report.erb', {
 
 ## Available helper methods
 
-- **text**: Normal text formatting
-- **encode**: Encode text for the printer
-- **encoding, set_encoding, set_printer_encoding**: Set printer encoding
-- **double_height**: Double height text
-- **quad_text, big, title, header, double_width_double_height, double_height_double_width**: Double width & Double height text
-- **double_width**: Double width text
-- **underline, u**: Underlined text
-- **underline2, u2**: Stronger underlined text
-- **bold, b**: Bold text
-- **left**: Align to left
-- **right**: Align to right
-- **center**: Align to center
-- **invert, inverted**: Color inverted text
-- **black, default_color, color_black, black_color**: Default Color (Usually black)
-- **red, alt_color, alternative_color, color_red, red_color**: Alternative Color (Usually Red)
-- **barcode**: Print barcode
-- **partial_cut**: Partially cut the paper (may not be available on all devices)
-- **cut**: Fully cut the paper (may not be available on all devices)
+| Method name | Description |
+| --- | --- |
+| **text** | Normal text formatting |
+| **encode** | Encode text for the printer |
+| **encoding, set_encoding, set_printer_encoding** | Set printer encoding |
+| **double_height** | Double height text |
+| **quad_text, big, title, header, double_width_double_height, double_height_double_width** | Double width & Double height text |
+| **double_width** |Double width text |
+| **underline, u** | Underlined text |
+| **underline2, u2** | Stronger underlined text |
+| **bold, b** | Bold text |
+| **left** | Align to left |
+| **right** | Align to right |
+| **center** | Align to center |
+| **invert, inverted** | Color inverted text |
+| **black, default_color, color_black, black_color** | Default Color (Usually black) |
+| **red, alt_color, alternative_color, color_red, red_color** | Alternative Color (Usually Red) |
+| **barcode** | Print barcode |
+| **partial_cut** | Partially cut the paper (may not be available on all devices) |
+| **cut** | Fully cut the paper (may not be available on all devices) |
 
 ## Contributing
 

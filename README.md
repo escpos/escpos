@@ -32,11 +32,21 @@ https://github.com/escpos/escpos-image
 ```ruby
 # Add this line to your application's Gemfile if you want to print images
 gem 'escpos-image'
+# And depending on your image processor of choice
+gem 'mini_magick'
+# or
+gem 'chunky_png'
 ```
 Or install it yourself as:
 ```
 gem install escpos-image
+# and then depending on your image processor of choice
+gem install mini_magick
+# or
+gem install chunky_png
 ```
+
+__For more information about image processors, their options and supported formats please see https://github.com/escpos/escpos-image readme file.__
 
 ## Examples
 

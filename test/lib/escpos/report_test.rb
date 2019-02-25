@@ -1,6 +1,7 @@
 require_relative '../../test_helper'
 
 class TestReport < Minitest::Test
+
   def setup
     @printer = Escpos::Printer.new
   end
@@ -24,7 +25,8 @@ class TestReport < Minitest::Test
     @printer << report.render
     @printer.cut!
     file = File.join(__dir__, "../../results/#{__method__}.txt")
-    #IO.binwrite file, @printer.to_escpos
+    #@printer.save file
+
     assert_equal IO.binread(file), @printer.to_escpos
   end
 

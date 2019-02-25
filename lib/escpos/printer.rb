@@ -23,6 +23,12 @@ module Escpos
       @data << Escpos.sequence(PAPER_FULL_CUT)
     end
 
+    def save(path)
+      File.open(path, "wb") do |f|
+        f.print to_escpos
+      end
+    end
+
     def to_escpos
       @data
     end

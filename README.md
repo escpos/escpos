@@ -74,6 +74,7 @@ __For more information about image processors, their options and supported forma
 
 ```ruby
 # my_report.rb:
+
 class MyReport < Escpos::Report
   def item(text)
     @count ||= 0
@@ -89,6 +90,7 @@ end
 
 ```erb
 <% # my_report.erb: %>
+
 <%= big "Order number #{order[:number]}" %>
 <%= item "First item" %>
 <%= item "Second item" %>
@@ -102,7 +104,12 @@ report = MyReport.new 'path/to/my_report.erb', {
 @printer << report.render
 @printer.cut!
 
-# @printer.to_escpos or @printer.to_base64 contains resulting ESC/POS data
+@printer.to_escpos # returns ESC/POS data ready to be sent to printer
+# on linux this can be piped directly to /dev/usb/lp0
+# with network printer sent directly to printer socket
+# with serial port printer it can be sent directly to the serial port
+
+@printer.to_base64 # returns base64 encoded ESC/POS data
 ```
 
 ## Available helper methods

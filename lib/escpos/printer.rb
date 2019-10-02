@@ -3,6 +3,8 @@ require "base64"
 module Escpos
   class Printer
 
+    attr_reader :data
+
     def initialize
       # ensure only supported sequences are generated
       @data = "".force_encoding("ASCII-8BIT")

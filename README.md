@@ -131,8 +131,8 @@ socket.close
 | Method name | Description |
 | --- | --- |
 | **text** | Normal text formatting |
-| **encode** | Encode text for the printer |
-| **encoding, set_encoding, set_printer_encoding** | Set printer encoding |
+| **encoding, set_encoding, set_printer_encoding** | Set printer encoding (see example below) |
+| **encode** | Encode text for the printer (see example below) |
 | **double_height** | Double height text |
 | **quad_text, big, title, header, double_width_double_height, double_height_double_width** | Double width & Double height text |
 | **double_width** |Double width text |
@@ -148,6 +148,19 @@ socket.close
 | **barcode** | Print barcode (see example below) |
 | **partial_cut** | Partially cut the paper (may not be available on all devices) |
 | **cut** | Fully cut the paper (may not be available on all devices) |
+
+## Encoding & diacritics
+
+To print diacritics (accented characters) with ESC/POS two things have to be done. First the desired code page must be set on the printer (can be done using an ESC/POS command) and the desired text has to be encoded to the code page set on the printer.
+
+```ruby
+printer = Escpos::Printer.new
+printer << Escpos::Helpers.set_printer_encoding(Escpos::CP_ISO8859_2)
+printer << Escpos::Helpers.encode("This is UTF-8 to ISO-8859-2 text: ěščřžýáíéúů", encoding: "ISO-8859-2")
+```
+List of available code pages: https://github.com/escpos/escpos/blob/master/lib/escpos.rb#L30
+
+Some printers (e.g. Epson TM line) allow setting a default code page in printer setup, then the `set_printer_encoding` call can be omitted.
 
 ## Printing barcodes
 

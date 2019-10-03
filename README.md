@@ -112,6 +112,20 @@ report = MyReport.new 'path/to/my_report.erb', {
 @printer.to_base64 # returns base64 encoded ESC/POS data
 ```
 
+## Network printing
+```ruby
+require "socket"
+
+printer = Escpos::Printer.new
+printer << "Some text"
+
+# change 1.2.3.4 and 9100 to match IP or host and port of the printer
+socket = TCPSocket.new "1.2.3.4", 9100
+
+socket.write printer.to_escpos
+socket.close
+```
+
 ## Available helper methods
 
 | Method name | Description |

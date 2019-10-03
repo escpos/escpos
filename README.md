@@ -64,7 +64,7 @@ __For more information about image processors, their options and supported forma
 
 @printer.to_escpos # returns ESC/POS data ready to be sent to printer
 # on linux this can be piped directly to /dev/usb/lp0
-# with network printer sent directly to printer socket
+# with network printer sent directly to printer socket (see example below)
 # with serial port printer it can be sent directly to the serial port
 
 @printer.to_base64 # returns base64 encoded ESC/POS data
@@ -106,7 +106,7 @@ report = MyReport.new 'path/to/my_report.erb', {
 
 @printer.to_escpos # returns ESC/POS data ready to be sent to printer
 # on linux this can be piped directly to /dev/usb/lp0
-# with network printer sent directly to printer socket
+# with network printer sent directly to printer socket (see example below)
 # with serial port printer it can be sent directly to the serial port
 
 @printer.to_base64 # returns base64 encoded ESC/POS data
@@ -145,9 +145,29 @@ socket.close
 | **invert, inverted** | Color inverted text |
 | **black, default_color, color_black, black_color** | Default Color (Usually black) |
 | **red, alt_color, alternative_color, color_red, red_color** | Alternative Color (Usually Red) |
-| **barcode** | Print barcode |
+| **barcode** | Print barcode (see example below) |
 | **partial_cut** | Partially cut the paper (may not be available on all devices) |
 | **cut** | Fully cut the paper (may not be available on all devices) |
+
+## Printing barcodes
+
+The barcode helper accepts barcode data as first argument and an options hash as second.
+
+Possible options:
+
+| Option | Possible values | Description |
+| --- | --- | --- |
+| **text_position** | **Escpos::BARCODE_TXT_OFF**: no text, only barcode <br> **Escpos::BARCODE_TXT_ABV**: text positioned above the barcode <br> **Escpos::BARCODE_TXT_BLW**: text positioned below the barcode <br> **Escpos::BARCODE_TXT_BTH**: text positioned both above and below the barcode | Text position |
+| **height** | 1 to 255 | Barcode height |
+| **width** | 2 to 6 | Barcode width |
+
+```ruby
+barcode_data = Escpos::Helpers.barcode("12345678", {
+  text_position: Escpos::BARCODE_TXT_BLW,
+  height: 50,
+  width: 3
+})
+```
 
 ## Contributing
 

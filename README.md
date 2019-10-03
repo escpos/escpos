@@ -157,12 +157,16 @@ Possible options:
 
 | Option | Possible values | Description |
 | --- | --- | --- |
+| **format** | **Escpos::BARCODE_UPC_A**: Barcode type UPC-A <br> **Escpos::BARCODE_UPC_E**: Barcode type UPC-E <br> **Escpos::BARCODE_EAN13**: Barcode type EAN13 <br> **Escpos::BARCODE_EAN8**: Barcode type EAN8 <br> **Escpos::BARCODE_CODE39**: Barcode type CODE39 <br> **Escpos::BARCODE_ITF**: Barcode type ITF <br> **Escpos::BARCODE_NW7**: Barcode type NW7 | Type of barcode |
 | **text_position** | **Escpos::BARCODE_TXT_OFF**: no text, only barcode <br> **Escpos::BARCODE_TXT_ABV**: text positioned above the barcode <br> **Escpos::BARCODE_TXT_BLW**: text positioned below the barcode <br> **Escpos::BARCODE_TXT_BTH**: text positioned both above and below the barcode | Text position |
 | **height** | 1 to 255 | Barcode height |
 | **width** | 2 to 6 | Barcode width |
 
+
+
 ```ruby
 barcode_data = Escpos::Helpers.barcode("12345678", {
+  format: Escpos::BARCODE_CODE39,
   text_position: Escpos::BARCODE_TXT_BLW,
   height: 50,
   width: 3

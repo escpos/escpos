@@ -158,7 +158,8 @@ printer = Escpos::Printer.new
 printer << Escpos::Helpers.set_printer_encoding(Escpos::CP_ISO8859_2)
 printer << Escpos::Helpers.encode("This is UTF-8 to ISO-8859-2 text: ěščřžýáíéúů", encoding: "ISO-8859-2")
 ```
-List of available code pages: https://github.com/escpos/escpos/blob/master/lib/escpos.rb#L30
+* List of available code pages for `set_printer_encoding`: https://github.com/escpos/escpos/blob/master/lib/escpos.rb#L30
+* Options for `encoding` in `encode` helper: Anything listed in `Encoding.constants`
 
 Some printers (e.g. Epson TM line) allow setting a default code page in printer setup, then the `set_printer_encoding` call can be omitted.
 

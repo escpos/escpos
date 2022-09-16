@@ -105,11 +105,22 @@ report = MyReport.new 'path/to/my_report.erb', {
 @printer.cut!
 
 @printer.to_escpos # returns ESC/POS data ready to be sent to printer
-# on linux this can be piped directly to /dev/usb/lp0
-# with network printer sent directly to printer socket (see example below)
-# with serial port printer it can be sent directly to the serial port
+# - on linux this can be piped directly to /dev/usb/lp0
+# - with network printer sent directly to printer socket
+# - with serial port printer it can be sent directly to the serial port
+# see example below
 
 @printer.to_base64 # returns base64 encoded ESC/POS data
+```
+
+## Printing to Linux/UNIX/BSD block device (USB/Serial/LPT)
+```ruby
+printer = Escpos::Printer.new
+printer << "Some text"
+
+# change /dev/usb/lp0 to match the printer device
+# e.g. on Linux this may be /dev/ttyS0 for serial port
+File.open("/dev/usb/lp0", "w") { |f| f.write printer.to_escpos }
 ```
 
 ## Network printing
@@ -119,8 +130,8 @@ require "socket"
 printer = Escpos::Printer.new
 printer << "Some text"
 
-# change 1.2.3.4 and 9100 to match IP or host and port of the printer
-socket = TCPSocket.new "1.2.3.4", 9100
+# change 192.168.2.7 and 9100 to match the IP or host and port of the printer
+socket = TCPSocket.new "192.168.2.7", 9100
 
 socket.write printer.to_escpos
 socket.close
